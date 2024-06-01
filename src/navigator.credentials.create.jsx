@@ -30,7 +30,7 @@ const exampleCode = `const credential = await navigator.credentials.create({
 });
 `
 
-function CredentialsCreateExample() {
+function CredentialsCreateExample({darkmode}) {
   const [credential, setCredential] = useContext(Context)
 
   const createPublickeyCredential = async () => {
@@ -63,6 +63,7 @@ function CredentialsCreateExample() {
       <h2 className="text-xl font-medium py-4">navigator.credentials.create Example</h2>
       <CodeBox
         description="Javascript code to create publicKeyCredential:"
+        darkmode={darkmode}
         children={exampleCode}
       />
 

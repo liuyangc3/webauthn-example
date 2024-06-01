@@ -11,5 +11,8 @@ export default {
     // require('@tailwindcss/typography'),
     require("daisyui")
   ],
+  daisyui: {
+    themes: false, // only want the default light and dark themes
+  },
 }
 

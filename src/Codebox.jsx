@@ -1,18 +1,20 @@
 import { useState } from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { solarizedDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
- function CodeBox({ description, language, children }) {
+function CodeBox({ description, language, darkmode, children }) {
   if (language === undefined) {
     language = "javascript"
   }
+
   return (
-    <div className="collapse collapse-open bg-base-200 border bg-gray-400">
-      <div className="collapse-title font-medium text-black">
+    <div className="collapse collapse-open border">
+      <div className="collapse-title font-medium">
         {description}
       </div>
-      <div className="collapse-content text-sm">
-        <SyntaxHighlighter children={children} language={language} style={solarizedDark} />
+
+      <div className="mockup-code">
+        <SyntaxHighlighter children={children} language={language} style={darkmode? atomOneDark : atomOneLight} />
       </div>
     </div>
   )
@@ -25,7 +27,7 @@ function ToggleCodeBox({ description, language, children }) {
 
   const [checked, setChecked] = useState(false)
 
-  const toggle= () => {
+  const toggle = () => {
     setChecked(current => !current)
   }
 
